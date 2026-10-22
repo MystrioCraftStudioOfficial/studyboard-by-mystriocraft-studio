@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6fa">
+  <title>StudyBoard — Learn at your pace</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" type="image/png" href="logo/mortarboard.png">
+</head>
+<body data-theme="soft">
+<header class="topbar">
+  <a class="brand" href="#" id="homeLink"><span class="brand-mark">S</span><span>StudyBoard<small>Learn at your pace</small></span></a>
+  <div class="top-actions">
+    <label class="theme-picker">Theme <select id="themeSelect" aria-label="Choose theme"><option value="soft">Soft color</option><option value="light">Light</option><option value="dark">Dark</option></select></label>
+    <button class="button outline" id="editToggle">Teacher tools</button>
+  </div>
+</header>
+<main class="layout">
+  <aside class="sidebar">
+    <div class="side-heading">YOUR LIBRARY <button class="icon-button" id="refreshBtn" title="Refresh">↻</button></div>
+    <div id="tree" class="tree"></div>
+    <div class="sidebar-note"><span class="dot"></span>Your study space, organized.</div>
+  </aside>
+  <section class="main-panel">
+    <div class="welcome-banner"><div><span class="eyebrow">A CALMER WAY TO STUDY</span><h1 id="pageHeading">Your learning space.</h1><p id="pageSubheading">Choose a class, subject, or chapter to begin.</p></div><div class="banner-symbol" aria-hidden="true">✦</div></div>
+    <div id="breadcrumbs" class="breadcrumbs">Home</div>
+    <div id="contentArea" class="content-area"></div>
+    <section class="feedback-card">
+      <div><span class="eyebrow">STUDENT VOICE</span><h2>Share feedback</h2><p class="muted">Tell the teacher what helped or what could be clearer.</p></div>
+      <form id="commentForm" class="comment-form"><input id="commentName" maxlength="50" placeholder="Your name (optional)" aria-label="Your name"><textarea id="commentMessage" maxlength="1000" rows="3" placeholder="Write your feedback…" required aria-label="Your feedback"></textarea><button class="button primary" type="submit">Send feedback</button></form>
+      <div id="commentsList" class="comments-list"></div>
+    </section>
+    <footer>Made for focused learning <span>•</span>Created, Designed & Developed by MystrioCraft Studio</footer>
+  </section>
+</main>
+
+<dialog id="passcodeDialog" class="dialog">
+  <form id="passcodeForm" method="dialog"><button type="button" class="dialog-close" id="closeDialog" aria-label="Close">×</button><span class="eyebrow">TEACHER ACCESS</span><h2>Unlock editing</h2><p class="muted">Enter the six-digit demo passcode.</p><label for="passcodeInput">Passcode</label><input id="passcodeInput" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="••••••" required><p id="passcodeMessage" class="form-message" role="status"></p><button class="button primary full" type="submit">Unlock editor</button><p class="tiny muted">Demo passcode: <strong>123456</strong>. Change it in Teacher tools → Change passcode.</p></form>
+</dialog>
+
+<dialog id="editorDialog" class="dialog editor-dialog">
+  <form id="editorForm" method="dialog"><button type="button" class="dialog-close" id="closeEditor" aria-label="Close">×</button><span class="eyebrow">CONTENT MANAGER</span><h2 id="editorTitle">Add content</h2><p class="muted">Make changes here without editing code.</p><div id="editorFields"></div><p id="editorMessage" class="form-message" role="status"></p><div class="dialog-actions"><button type="button" class="button outline" id="cancelEditor">Cancel</button><button type="submit" class="button primary">Save changes</button></div></form>
+</dialog>
+<input type="file" id="imagePicker" accept="image/*" hidden>
+<input type="file" id="importPicker" accept=".json,application/json" hidden>
+<script src="./script.js"></script>
+</body></html>
